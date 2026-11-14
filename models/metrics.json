@@ -1,0 +1,133 @@
+{
+    "dataset_stats": {
+        "dataset_filename": "IMDB Dataset.csv",
+        "total_raw": 50000,
+        "duplicates_removed": 418,
+        "nulls_removed": 0,
+        "total_clean": 49582,
+        "train_count": 39665,
+        "test_count": 9917,
+        "positive_count": 24884,
+        "negative_count": 24698,
+        "positive_pct": 50.19,
+        "negative_pct": 49.81
+    },
+    "tfidf_config": {
+        "ngram_range": [
+            1,
+            2
+        ],
+        "max_features": 50000,
+        "min_df": 2,
+        "sublinear_tf": true,
+        "features_extracted": 50000
+    },
+    "models": {
+        "LogisticRegression": {
+            "name": "LogisticRegression",
+            "training_time_sec": 0.66,
+            "accuracy": 0.9018,
+            "precision": 0.8935,
+            "recall": 0.9132,
+            "f1_score": 0.9032,
+            "confusion_matrix": [
+                [
+                    4398,
+                    542
+                ],
+                [
+                    432,
+                    4545
+                ]
+            ],
+            "classification_report": {
+                "Negative": {
+                    "precision": 0.9105590062111801,
+                    "recall": 0.8902834008097166,
+                    "f1-score": 0.9003070624360286,
+                    "support": 4940.0
+                },
+                "Positive": {
+                    "precision": 0.8934539021034008,
+                    "recall": 0.9132007233273056,
+                    "f1-score": 0.9032193958664547,
+                    "support": 4977.0
+                },
+                "accuracy": 0.9017848139558334,
+                "macro avg": {
+                    "precision": 0.9020064541572905,
+                    "recall": 0.901742062068511,
+                    "f1-score": 0.9017632291512416,
+                    "support": 9917.0
+                },
+                "weighted avg": {
+                    "precision": 0.9019745448675867,
+                    "recall": 0.9017848139558334,
+                    "f1-score": 0.9017686620612411,
+                    "support": 9917.0
+                }
+            }
+        },
+        "MultinomialNB": {
+            "name": "MultinomialNB",
+            "training_time_sec": 0.09,
+            "accuracy": 0.8844,
+            "precision": 0.8794,
+            "recall": 0.8921,
+            "f1_score": 0.8857,
+            "confusion_matrix": [
+                [
+                    4331,
+                    609
+                ],
+                [
+                    537,
+                    4440
+                ]
+            ],
+            "classification_report": {
+                "Negative": {
+                    "precision": 0.8896877567789647,
+                    "recall": 0.8767206477732794,
+                    "f1-score": 0.8831566068515497,
+                    "support": 4940.0
+                },
+                "Positive": {
+                    "precision": 0.8793820558526441,
+                    "recall": 0.8921036769138035,
+                    "f1-score": 0.8856971873129862,
+                    "support": 4977.0
+                },
+                "accuracy": 0.8844408591307855,
+                "macro avg": {
+                    "precision": 0.8845349063158043,
+                    "recall": 0.8844121623435415,
+                    "f1-score": 0.884426897082268,
+                    "support": 9917.0
+                },
+                "weighted avg": {
+                    "precision": 0.8845156812006348,
+                    "recall": 0.8844408591307855,
+                    "f1-score": 0.8844316364932326,
+                    "support": 9917.0
+                }
+            }
+        }
+    },
+    "best_model": {
+        "name": "LogisticRegression",
+        "criterion": "F1-Score on held-out test set",
+        "accuracy": 0.9018,
+        "f1_score": 0.9032,
+        "precision": 0.8935,
+        "recall": 0.9132,
+        "model_filename": "best_sentiment_model.pkl",
+        "vectorizer_filename": "tfidf_vectorizer.pkl"
+    },
+    "pipeline_metadata": {
+        "split_ratio": "80/20 Stratified",
+        "random_state": 42,
+        "completed_timestamp": "2026-11-15 00:53:43",
+        "total_runtime_seconds": 64.42
+    }
+}
