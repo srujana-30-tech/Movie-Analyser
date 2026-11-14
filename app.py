@@ -679,22 +679,24 @@ def main():
             sizes = [pos_reviews, neg_reviews]
             labels = ["Positive (50.19%)", "Negative (49.81%)"]
             
-            pie_result = ax.pie(
-                sizes,
-                labels=labels,
-                autopct="%1.1f%%",
-                startangle=140,
-                colors=colors,
-                pctdistance=0.76,
-                textprops={"color": "#F4EFE6", "fontsize": 10, "fontfamily": "sans-serif"},
-                wedgeprops={"width": 0.42, "edgecolor": "#14141B", "linewidth": 2}
-            )
-            if len(pie_result) == 3:
-                autotexts = pie_result[2]
-                for autotext in autotexts:
-                    autotext.set_color("#0B0B0F")
-                    autotext.set_fontweight("bold")
-                    autotext.set_fontsize(11)
+            try:
+                pie_out = ax.pie(
+                    sizes,
+                    labels=labels,
+                    autopct="%1.1f%%",
+                    startangle=140,
+                    colors=colors,
+                    pctdistance=0.76,
+                    textprops={"color": "#F4EFE6", "fontsize": 10, "fontfamily": "sans-serif"},
+                    wedgeprops={"width": 0.42, "edgecolor": "#14141B", "linewidth": 2}
+                )
+                if isinstance(pie_out, (list, tuple)) and len(pie_out) >= 3:
+                    for autotext in pie_out[2]:
+                        autotext.set_color("#0B0B0F")
+                        autotext.set_fontweight("bold")
+                        autotext.set_fontsize(11)
+            except Exception:
+                pass
 
             # Center text in donut
             ax.text(0, 0, f"{total_reviews:,}\nREVIEWS", ha="center", va="center",
